@@ -3310,8 +3310,8 @@ var Item = Base.extend(Callback, {
 	},
 
 	contains: function() {
-		return !!this._contains(
-				this._matrix._inverseTransform(Point.read(arguments)));
+		var p = this._matrix._inverseTransform(Point.read(arguments));
+		return !!p && !!this._contains(p);
 	},
 
 	_contains: function(point) {

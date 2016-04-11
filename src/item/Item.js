@@ -1618,8 +1618,8 @@ var Item = Base.extend(Callback, /** @lends Item# */{
 	 */
 	contains: function(/* point */) {
 		// See CompoundPath#_contains() for the reason for !!
-		return !!this._contains(
-				this._matrix._inverseTransform(Point.read(arguments)));
+		var p = this._matrix._inverseTransform(Point.read(arguments));
+		return !!p && !!this._contains(p);
 	},
 
 	_contains: function(point) {
