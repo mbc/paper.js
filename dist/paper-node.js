@@ -3349,7 +3349,7 @@ var Item = Base.extend(Callback, {
 					);
 		point = matrix._inverseTransform(point);
 
-		if (!this._children && !this.getInternalRoughBounds()
+		if (!point || !this._children && !this.getInternalRoughBounds()
 				.expand(tolerancePadding.multiply(2))._containsPoint(point))
 			return null;
 		var checkSelf = !(options.guides && !this._guide

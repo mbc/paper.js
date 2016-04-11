@@ -1709,7 +1709,7 @@ var Item = Base.extend(Callback, /** @lends Item# */{
 		// Transform point to local coordinates.
 		point = matrix._inverseTransform(point);
 
-		if (!this._children && !this.getInternalRoughBounds()
+		if (!point || !this._children && !this.getInternalRoughBounds()
 				.expand(tolerancePadding.multiply(2))._containsPoint(point))
 			return null;
 		// Filter for type, guides and selected items if that's required.
